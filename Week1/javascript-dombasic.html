@@ -1,0 +1,38 @@
+<html>
+    <head>  
+        <title>Dom basic</title>
+        <script type = "text/javascript">
+            let clicks = 0;
+
+            window.addEventListener('load',init);
+
+            function init(){
+
+                let thebody = document.body;
+                thebody.addEventListener('click',clickCalled);
+                document.getElementById("mouseoverElement").addEventListener('mouseover',function(){
+                    console.log("mouse over");
+                    clicks++;
+
+                    let clicksElement = document.getElementById('clicks');
+                    clicksElement.innerHTML = clicks;
+                    clicksElement.style.fontSize = clicks + 'px';
+                })
+                function clickCalled(){
+                    clicks++;
+                    console.log(clicks);
+
+                    let clicksElement = document.getElementById('clicks');
+                    clicksElement.innerHTML = clicks;
+                    clicksElement.style.fontSize = clicks + 'px';
+
+            }
+            }
+        </script>
+    </head>
+    <body>
+        <div>number of clicks</div>
+        <div id = "clicks">0</div>
+        <div id="mouseoverElement">hover over here</div>
+    </body>
+</html>

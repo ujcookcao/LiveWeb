@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <script type = "text/javascript">
+            var videoHidden = false;
+
+            window.addEventListener('load',function(){
+                var video = document.getElementById('myfunvideo');
+                console.log(video);   
+                video.playbackRate = 3;
+                video.addEventListener('mouseover',function(){
+                    video.width = video.width * 0.8;
+                    video.height = video.height * 0.8;
+                    video.playbackRate = 1;
+                })
+                video.addEventListener('mouseout',function(){
+                    video.width = video.width * 1.25;
+                    video.height = video.height * 1.25;
+                    video.playbackRate = 3;
+                })
+
+                var pressbutton = document.getElementById("press");
+                pressbutton.addEventListener('click',function(){
+                    if (videoHidden == false){
+                        video.style.display = 'none';
+                        videoHidden = true;
+                        video.pause();
+                    }else{
+                        video.style.display = 'block';
+                        video.controls = false
+                        videoHidden = false;
+                        video.addEventListener('ended',function(){
+                            document.body.innerHTML = "video ended";
+                        })
+                        video.addEventListener('timeupdate',function(evt){
+                            console.log(video.currentTime);
+                            if(video.currentTime < 5){
+                                document.body.style.backgroundColor = 'red';
+
+                            }else if(video.currentTime < 6){
+                                document.body.style.backgroundColor = 'blue';
+                            }else if(video.currentTime < 7){
+                                document.body.style.backgroundColor = 'green';
+                            }
+                            
+                        })
+
+                        video.play();
+                    }
+                })
+            });
+        </script>
+            
+    </head>
+    <body>
+        <video id = "myfunvideo" src="guy.mp4" width="720" height="480" autoplay></video>
+        <input type="button" id = "press" value="Press Me">
+    </body>
+</html>
