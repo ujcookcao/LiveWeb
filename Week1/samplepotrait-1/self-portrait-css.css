@@ -1,0 +1,52 @@
+
+.style3{font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;}
+
+.style4{font: 12px/1.5 Tahoma,Helvetica,Arial,'宋体',sans-serif;}
+
+
+.style5{font:12px/1 Tahoma,Helvetica,Arial,"\5b8b\4f53",sans-serif;}
+
+
+.style{font:Georgia, serif;}
+
+
+.style2{font:italic 1em Georgia, serif;}
+
+body {
+    background-image: url('sad.jpg');
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: center bottom;
+    min-height: 5000px;  /* 或者任何足够长的值 */
+}
+
+.down-arrow {
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 20px solid black; /* 箭头的颜色 */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.scroll-down {
+    font:italic 1em Georgia, serif;
+    font-size: 50px;
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+}
+
+#movingButton {
+    position: absolute;
+    transition: top 0.5s, left 0.5s; /* 使位置改变有动画效果 */
+}
+#your-video-id{
+     display:none;
+     width:100%;
+     height: auto;
+}
